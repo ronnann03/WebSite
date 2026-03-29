@@ -79,7 +79,7 @@ function ParticleCanvas() {
 }
 
 // ─── Slot animado (slide up / swap) ─────────────────────────────────────────
-function AnimSlot({ text, fontSize, color, fontWeight = '700', letterSpacing = '-0.04em', isGradient = false }) {
+function AnimSlot({ text, fontSize, color, fontWeight = '700cc', letterSpacing = '-0.04em', isGradient = false }) {
   const spanRef = useRef(null)
   const slotRef = useRef(null)
   const prevText = useRef(null)

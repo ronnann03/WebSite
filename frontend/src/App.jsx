@@ -1,23 +1,50 @@
 import { useState } from 'react'
 import IntroScreen from './IntroScreen'
-import './App.css'
+import Navbar       from './components/Navbar'
+import Hero         from './components/Hero'
+import Services     from './components/Services'
+import Portfolio    from './components/Portfolio'
+import About        from './components/About'
+import Testimonials from './components/Testimonials'
+import Contact      from './components/Contact'
+import Footer       from './components/Footer'
+import './index.css'
 
-function App() {
+export default function App() {
   const [introFinished, setIntroFinished] = useState(false)
 
   return (
     <>
+      {/* Intro animada — desaparece sola al terminar */}
       {!introFinished && (
         <IntroScreen onComplete={() => setIntroFinished(true)} />
       )}
 
-      {/* Tu sitio real va aquí — solo se ve cuando termina la intro */}
-      <section style={{ opacity: introFinished ? 1 : 0, transition: 'opacity 0.8s ease' }}>
-        <h1>Tu sitio web</h1>
-        <p>Contenido de tu empresa aquí.</p>
-      </section>
+      {/* Sitio principal */}
+      <div style={{
+        opacity: introFinished ? 1 : 0,
+        transition: 'opacity 0.8s ease',
+      }}>
+        <Navbar />
+
+        <main>
+          <Hero />
+
+          {/* Transición oscuro → claro */}
+          <div style={{
+            height: 120,
+            background: 'linear-gradient(to bottom, var(--dark), var(--light))',
+          }} />
+
+          <Services />
+          <Portfolio />
+          <About />
+          <Testimonials />
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
     </>
   )
 }
-
-export default App
