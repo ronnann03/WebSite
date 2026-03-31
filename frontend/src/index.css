@@ -30,7 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Utility */
+/* ── Utilidades de sección ────────────────────────────────── */
 .section-tag {
   font-size: 12px;
   font-weight: 600;
@@ -56,6 +56,7 @@ body {
   margin-bottom: 64px;
 }
 
+/* ── Botones ──────────────────────────────────────────────── */
 .btn-primary {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 14px;
@@ -87,11 +88,74 @@ body {
 }
 .btn-ghost:hover { border-color: rgba(167,139,250,0.5); transform: translateY(-1px); }
 
+/* ── Animaciones ──────────────────────────────────────────── */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.4; transform: scale(0.7); }
 }
 
+/* ── Hero stats ───────────────────────────────────────────── */
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 0.5px solid rgba(255,255,255,0.07);
+  flex-wrap: wrap;
+}
+
+/* ── Responsive — Contact ─────────────────────────────────── */
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── Media queries ────────────────────────────────────────── */
 @media (max-width: 768px) {
+  /* Tipografía */
   .section-title { font-size: clamp(28px, 7vw, 40px); }
+  .section-sub   { margin-bottom: 40px; }
+
+  /* Hero stats en 2 columnas en móvil */
+  .hero-stats {
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Contact de 2 columnas a 1 */
+  .contact-inner {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Secciones con menos padding vertical */
+  #services, #portfolio, #about, #testimonials, #contact {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  /* Botones full-width en móvil */
+  .btn-primary, .btn-ghost {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero stats en 2 columnas pequeñas */
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Menos padding lateral en pantallas muy pequeñas */
+  #services, #portfolio, #about, #testimonials, #contact {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
 }
